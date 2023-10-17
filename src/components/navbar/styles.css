@@ -1,0 +1,46 @@
+.app-bar {
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #000000;
+  padding: 10px 20px;
+  color: rgb(234, 232, 232);
+  border-radius: 20px;
+  
+}
+
+.app-bar__logo {
+  font-size: 24px;
+}
+
+.app-bar__search {
+  display: flex;
+}
+
+.app-bar__search input {
+  padding: 5px;
+  border: none;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+.app-bar__search button {
+  background-color: #1976D2;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+.navbar-logo img {
+  width:10px;
+  height: 10px; 
+}
+/* Navbar.css or your CSS file */
+.round-image {
+  width: 50px; /* Set the width of your logo image */
+  height: 50px; /* Set the height to match the width to create a perfect circle */
+  border-radius: 50%; /* Makes the image circular */
+}
+

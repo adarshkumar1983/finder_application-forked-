@@ -1,0 +1,38 @@
+/* Add this CSS to your stylesheet (e.g., App.css) or in a <style> tag within your component. */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+
+  }
+  
+  th, td {
+    border: 1px solid #000000;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  th {
+    background-color: #d7b1b1;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  tr:hover {
+    background-color: #ddd;
+  }
+  
+  button {
+    padding: 5px 10px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
