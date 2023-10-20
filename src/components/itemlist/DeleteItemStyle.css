@@ -1,0 +1,41 @@
+.delete-animation {
+    /* background-color: green; */
+    /* color: white; */
+    padding: 10px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+    transform: translateX(100%);
+    opacity: 100;
+  }
+  
+  .delete-animation.active {
+    transform: translateX(0);
+    opacity: 1;
+  }
+
+  @keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+    100% { transform: translateX(5px); }
+  }
+  
+  .shake {
+    animation: shake 0.2s ease infinite;
+  }
+  .blink {
+    animation: blink 0.3s ease infinite;
+  }
+  
+  @keyframes blink {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0;
+    }
+  }
+    

@@ -2,14 +2,14 @@
 
 table {
     width: 100%;
-    border-collapse: collapse;
+    border-collapse:  separate;
 
   }
   
   th, td {
     border: 1px solid #000000;
-    padding: 8px;
-    text-align: left;
+    padding: 7px;
+    text-align: center;
   }
   
   th {
@@ -26,7 +26,8 @@ table {
   
   button {
     padding: 5px 10px;
-    background-color: #007BFF;
+    background-color: #2185ef;
+    /* backface-visibility: visible; */
     color: white;
     border: none;
     cursor: pointer;
@@ -34,5 +35,35 @@ table {
   
   button:hover {
     background-color: #0056b3;
+  }
+  
+  .tooltip {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    width: 95%;
+    border-collapse:  separate;
+  }
+  
+  .tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 0px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    top: -30px;
+    left: 50%;
+    margin-left: -60px;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  
+  .tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
   }
   

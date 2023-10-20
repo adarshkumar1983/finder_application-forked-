@@ -1,18 +1,22 @@
 // import "./styles.css";
 import React, { useEffect, useState } from 'react';
 import AppBar from './components/navbar/nav';
-import Gallery from './components/itemlist/DisplayItems';
-import Additem from './components/item/additem';
+import ItemList from './components/itemlist/ItemList';
+import AddItemForm from './components/item/AddItemForm';
+//import  DeleteItemPage from './components/DeleteItem/DeleteItem';
+
+
 
 
 function App() {
 
 
   return (
-    <div>
+    <div >
     <AppBar/>
-    <Additem/>
-  <Gallery/>
+    <AddItemForm />
+    <ItemList/>
+ 
     </div>
   );
 }
