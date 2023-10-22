@@ -1,0 +1,12 @@
+.search-bar-container {
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px;
+
+  }
+  
+  .search-bar-container input {
+    width: 100%; /* Expand the search bar to the full width of the container */
+  }
+  /* Add a class for the blue button */
+

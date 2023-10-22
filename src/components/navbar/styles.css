@@ -63,21 +63,29 @@ body {
 }
 
 .theme-toggle {
-  background-color: transparent;
-  border: none;
-  color: white;
+  background: transparent; /* Set the background to transparent */
+  border: 2px solid #007BFF; /* Add a blue border */
+  color: #007BFF; /* Set text color to blue */
   cursor: pointer;
-  font-weight: bold;
+  padding: 5px 10px;
+  border-radius: 20px;
+  transition: background 0.3s, border-color 0.3s, color 0.3s;
+}
+
+.theme-toggle:hover {
+  background: #007BFF; /* Change the background to blue on hover */
+  color: #fff; /* Change text color to white on hover */
 }
 
 /* Dark mode styles */
 body.dark {
-  background-color: #121212;
+  background-color:rgb(40, 42, 45);
   color: #fff;
 }
 
 .navbar.dark {
-  background-color: #333;
+  background-color: #d20e0e;
 }
+
 
 

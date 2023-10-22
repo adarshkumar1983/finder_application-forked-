@@ -17,31 +17,31 @@ table {
   }
   
   tr:nth-child(even) {
-    background-color: #f2f2f2;
+    /* background-color:  */
   }
   
   tr:hover {
-    background-color: #ddd;
+    background-color: #4db3aa;
   }
   
   button {
     padding: 5px 10px;
     background-color: #2185ef;
-    /* backface-visibility: visible; */
+    backface-visibility: visible;
     color: white;
     border: none;
     cursor: pointer;
   }
   
   button:hover {
-    background-color: #0056b3;
+    background-color: #b30000;
   }
   
   .tooltip {
     position: relative;
     display: inline-block;
     cursor: pointer;
-    width: 95%;
+    width: 94%;
     border-collapse:  separate;
   }
   
@@ -66,4 +66,3 @@ table {
     visibility: visible;
     opacity: 1;
   }
-  

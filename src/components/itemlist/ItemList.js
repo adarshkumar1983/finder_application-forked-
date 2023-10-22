@@ -1,7 +1,13 @@
 import React, { useEffect, useState } from 'react';
+
 import "./itemliststyles.css";
+import SearchBar from "../search/SerchItem.js";
 import "./DeleteItemStyle.css";
 import 'bootstrap-icons/font/bootstrap-icons.css';
+import EditModal from '../EditItem/EditItem.js'; 
+import '../EditItem/EdititemStyle.css'; 
+
+
 
 
 
@@ -11,15 +17,16 @@ function App() {
   const [error, setError] = useState(null);
   const [deletedItem, setDeletedItem] = useState(null);
   const [hoveredItem, setHoveredItem] = useState(null);
+  const [searchQuery, setSearchQuery] = useState('');
+  const [selectedItemData, setSelectedItemData] = useState(null);
+  const [isEditModalVisible, setIsEditModalVisible] = useState(false); // State for edit modal visibility
+  const [selectedItem, setSelectedItem] = useState(null);
 
-  //const audio = new Audio(trashSound); // Load the trash sound
 
   // Implement the useEffect hook to load items when the component mounts
   useEffect(() => {
     loadItems();
   }, []);
-
- 
 
   // Function to load items from DynamoDB
   function loadItems() {
@@ -37,6 +44,15 @@ function App() {
       });
   }
 
+  const openEditModal = (itemData) => {
+    setSelectedItemData(itemData);
+    setIsEditModalVisible(true);
+  };
+
+  const closeEditModal = () => {
+    setIsEditModalVisible(false);
+  };
+
   function deleteItem(itemName) {
     // Send the DELETE request directly from here
     const apiUrl = 'https://k2zguvcin7.execute-api.ap-south-1.amazonaws.com/dev/deleteitem';
@@ -53,7 +69,6 @@ function App() {
     })
       .then(response => {
         if (response.ok) {
-          // audio.play(); // Play the trash sound
           setDeletedItem(itemName); // Set the deleted item
           setTimeout(() => {
             setDeletedItem(null); // Clear the deleted item after a delay
@@ -67,70 +82,89 @@ function App() {
         alert('Error deleting item: ' + error.message);
       });
   }
-  // Your displayItems and other functions would be similar, just make sure to adapt them to React.
+  const handleSearch = (query) => {
+    setSearchQuery(query);
+  }
 
   return (
-    <div className="App">
-      
-    <h1>Items</h1>
-    <table>
-      <thead>
-        <tr>
-          <th>Item Name</th>
-          <th>Description</th>
-          <th>Item Type</th>
-          <th></th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        {items.map(item => (
-          // <Item name="item.item_name" description={item.description} type={item.item_type}></>
-          <tr key={item.item_name}>
-            <td>{item.item_name}</td>
-            <td>{item.description}</td>
-            <td className="tooltip" style={{ display: ' inline-block', alignItems: 'center', lineHeight: '30px'  }}>
-  {item.item_type === 'object' ? (
-    <i className="bi bi-box" style={{   marginRight: '5px',  border: 'none', borderRadius: '0'}}></i>
-  ) : item.item_type === 'container' ? (
-    <i className="bi bi-bag-fill" style={{ marginRight: '5px', border: 'none', borderRadius: '0'  }}></i>
-  ) : null}
-  {/* {item.item_type} */}
-  <span className="tooltiptext">
-    {item.item_type === 'object' ? 'Object' : item.item_type === 'container' ? 'Container' : 'Unknown'}
-  </span>
-</td>
 
-              <td>
-              <button>Edit</button>
-        </td>
-        <td>
-        <button
-                  onClick={() => deleteItem(item.item_name)}
-                  onMouseEnter={() => setHoveredItem(item.item_name)}
-                  onMouseLeave={() => setHoveredItem(null)}
-                  className={
-                    deletedItem === item.item_name
-                      ? 'shake'
-                      : hoveredItem === item.item_name
-                      ? 'blink'
-                      : ''
-                  }
-                >
-                  <i className="bi bi-trash"></i>
-                </button>
-            </td>
-          </tr>
-        ))}
-      </tbody>
-    </table>
+      <div className="App">
+        <SearchBar onSearch={handleSearch} className="search-button" />
+        <table>
+          <thead>
+            <tr>
+              <th>Item Name</th>
+              <th>Description</th>
+              <th>Item Type</th>
+              <th></th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            {items
+              .filter((item) =>
+                item.item_name.toLowerCase().includes(searchQuery.toLowerCase())
+              )
+              .map((item) => (
+                <tr key={item.item_name}>
+                <td>
+      {item.item_name}
+                  
+                </td>
+                  <td>{item.description}</td>
+                  <td className="tooltip" style={{ display: 'inline-block', alignItems: 'center', lineHeight: '30px' }}>
+                    {item.item_type === 'object' ? (
+                      <i className="bi bi-box" style={{ marginRight: '5px', border: 'none', borderRadius: '0' }}></i>
+                    ) : item.item_type === 'container' ? (
+                      <i className="bi bi-bag-fill" style={{ marginRight: '5px', border: 'none', borderRadius: '0' }}></i>
+                    ) : null}
+                    <span className="tooltiptext">
+                      {item.item_type === 'object' ? 'Object' : item.item_type === 'container' ? 'Container' : 'Unknown'}
+                    </span>
+                  </td>
+                  <td>
+                    <button onClick={() => openEditModal(item)}>
+                      <i className="bi bi-pencil-square"></i>
+                    </button>
+                  </td>
+                  <td>
+                    <button
+                      onClick={() => deleteItem(item.item_name)}
+                      onMouseEnter={() => setHoveredItem(item.item_name)}
+                      onMouseLeave={() => setHoveredItem(null)}
+                      className={
+                        deletedItem === item.item_name
+                          ? 'shake'
+                          : hoveredItem === item.item_name
+                          ? 'blink'
+                          : ''
+                      }
+                    >
+                      <i className="bi bi-trash"></i>
+                    </button>
+                  </td>
+                </tr>
+              ))}
+          </tbody>
+        </table>
+       
+        
+        {deletedItem && (
+          <div className="delete-animation">
+            Item "{deletedItem}" deleted successfully!
+          </div>
+        )}
+        {isEditModalVisible && (
+          <div className="modal active" id="editModal">
+            <div className="modal-content">
+              <EditModal selectedItemData={selectedItemData} hideEditModal={closeEditModal} loadItems={loadItems} />
+            </div>
+          </div>
+        )}
+       
+      </div>
 
-    {deletedItem && (
-        <div className="delete-animation">
-          Item "{deletedItem}" deleted successfully!
-        </div>
-      )}
-  </div>
+
   );
 }
 
