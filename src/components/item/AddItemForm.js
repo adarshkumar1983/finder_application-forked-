@@ -1,9 +1,9 @@
 import React, { useState, useRef, useEffect } from 'react';
 import './additemstyle.css';
 
-const App = () => {
+const AddItemForm = () => {
   const [item, setItem] = useState({ item_name: '', description: '', item_type: '' });
-  const [items, setItems] = useState([]);
+  const [Items, setItems] = useState([]);
   const [error, setError] = useState(null);
   const [isPostFieldsVisible, setPostFieldsVisible] = useState(false);
 
@@ -113,4 +113,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default AddItemForm;

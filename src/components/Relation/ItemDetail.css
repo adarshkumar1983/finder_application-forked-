@@ -1,0 +1,113 @@
+
+
+.item-dropdown-container {
+  text-align: center;
+  margin: 20px auto;
+  max-width: 8000px;
+  background: linear-gradient(135deg, #3498db, #8e44ad);
+  padding: 1px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.5s ease;
+}
+
+.overlay-pattern {
+  content: '';
+  pointer-events: none;
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.2) 75%, transparent 75%, transparent);
+  background-size: 100px 100px;
+  z-index: 1;
+  animation: animatedPattern 5445s linear infinite;
+}
+
+@keyframes animatedPattern {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.items-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.object-items,
+.container-items {
+  width: 45%;
+  margin: 10px;
+}
+
+.full-width-select {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  margin-top: 10px;
+  font-size: 16px;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #fff;
+}
+
+.full-width-select:focus {
+  outline: none;
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+object-items p,
+container-items p {
+  margin-top: 10px;
+  font-style: italic;
+  color: #fff;
+}
+
+.item-dropdown-container.-genie {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  bottom: 20px;
+  background: #52b7c4;
+  transition: all 0.5s ease;
+}
+
+.item-dropdown-container button {
+  display: block;
+  margin: 20px auto;
+  padding: 10px 20px;
+  background: #52b7c4;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.item-dropdown-container .post-button {
+  background-color: #3498db;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: auto;
+}
+/* Apply these styles for the button */
+.toggle-button {
+  display: block;
+  margin: 2px auto;
+  padding: 5px 20px;
+  
+  background: #52b7c4;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  float: right;
+}

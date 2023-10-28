@@ -16,9 +16,9 @@ table {
     background-color: #d7b1b1;
   }
   
-  tr:nth-child(even) {
-    /* background-color:  */
-  }
+  /* tr:nth-child(even) {
+    background-color: 
+  } */
   
   tr:hover {
     background-color: #4db3aa;
