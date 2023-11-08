@@ -111,3 +111,91 @@ container-items p {
   cursor: pointer;
   float: right;
 }
+
+/* RelationPage.css */
+
+.relation_container {
+  background-color: black;
+  padding: 20px;
+  border-radius: 10px;
+  color: white;
+  /* text-align: center; */
+  text-align: center;
+}
+
+.heading {
+  font-size: 24px;
+}
+
+.message {
+  font-size: 18px;
+}
+
+.errorMessage {
+  font-size: 18px;
+  color: red;
+}
+
+.details {
+  margin-top: 10px;
+}
+
+
+p strong {
+  color: red;
+}
+
+.item-container {
+  margin-top: 10px; /* Add margin between the item name and container name */
+  text-align: center;
+}
+p {
+  margin-bottom: 50px;
+}
+
+/* Define styles for each div */
+/* Define styles for each div */
+.item-container,
+.container-name {
+  display: inline-block;
+  width: 20%;
+  margin: 10px;
+  padding: 5px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.item-container {
+  background: linear-gradient(45deg, #ffcc00, #ff6600);
+}
+
+.container-name {
+  background: linear-gradient(45deg, #3399ff, #0066cc);
+}
+
+/* Define style for the IN strong element */
+.strong {
+  color: red;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+/* Increase the text size for item_name */
+.item-container .item-name {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+/* Increase the text size for container_name */
+.container-name .container-name-text {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.item-details-container {
+  display: flex;
+
+  margin-right: 1200px; /* Adjust the margin as needed */
+  text-align: left;
+
+}

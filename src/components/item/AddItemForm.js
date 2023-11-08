@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import './additemstyle.css';
+import NavigationBar from '../navbar/nav';
 
 const AddItemForm = () => {
   const [item, setItem] = useState({ item_name: '', description: '', item_type: '' });
@@ -62,16 +63,20 @@ const AddItemForm = () => {
   };
 
   return (
+    <div>
+      <NavigationBar onAddButtonClick={togglePostFieldsVisibility} />
+      <NavigationBar onAddButtonClick={togglePostFieldsVisibility} />
     <div className="container">
-      <h1 className="header">Items</h1>
+      <h1 className="header">ADD ME</h1>
+    
       <br></br>
-      {!isPostFieldsVisible && (
-        <div>
-          <button onClick={togglePostFieldsVisibility} className="add-button">
+      {/* {!isPostFieldsVisible && (
+         <div>
+           <button onClick={togglePostFieldsVisibility} className="add-button">
           <i class="bi bi-plus-square"  style={{ fontSize: '40px' }}></i>
-          </button>
-        </div>
-      )}
+        //   </button>
+         </div>
+      )} */}
 
 
       {isPostFieldsVisible && (
@@ -105,10 +110,12 @@ const AddItemForm = () => {
           <button onClick={callAPI} className="button">
             <i className="bi bi-send-fill"></i>
           </button>
+         
         </div>
       )}
 
       {error && <p className="error">{error}</p>}
+    </div>
     </div>
   );
 };

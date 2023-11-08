@@ -1,7 +1,8 @@
 .container {
     max-width: 400px;
     margin: 0 auto;
-    padding: 20px;
+    margin-top: 76px;
+    padding: 15px;
     border: 1px solid #ccc;
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -9,8 +10,8 @@
   
 
   .header {
-    font-size: 24px;
-    margin-bottom: 20px;
+    font-size: 14px;
+    margin-bottom: 0px;
   }
   
 
@@ -81,11 +82,10 @@
 
 .add-button{
   background: transparent; 
-  /* background: content-box radial-gradient(rgb(255, 255, 255), rgb(75, 254, 20)); */
-  
+
   color: #f82d00; 
   cursor: pointer;
-  padding: 10px 20px;
+  padding: 3px 6px;
   border-radius: 5px;
   transition: background 0.3s, border-color 0.3s, color 0.3s;
 }

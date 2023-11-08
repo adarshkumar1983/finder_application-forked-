@@ -63,6 +63,7 @@ body {
 }
 
 .theme-toggle {
+  order: 1;
   background: transparent; /* Set the background to transparent */
   border: 2px solid #007BFF; /* Add a blue border */
   color: #007BFF; /* Set text color to blue */
@@ -89,3 +90,8 @@ body.dark {
 
 
 
+
+.add-button {
+  margin-left: 1200px;
+/* Set the order to move the "Add" button to the right */
+}

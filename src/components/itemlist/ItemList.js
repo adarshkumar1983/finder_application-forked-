@@ -87,7 +87,7 @@ function ItemList() {
           setTimeout(() => {
             setDeletedItem(null); // Clear the deleted item after a delay
             loadItems(); // Refresh the item list after successful deletion
-          }, 1000); // Set a 2-second delay for the animation
+          }, 1000); 
         } else {
           throw new Error("Error deleting item");
         }
@@ -100,18 +100,6 @@ function ItemList() {
     setSearchQuery(query);
   };
 
-
-  // const handleItemClick = (itemName) => {
-  //   // Find the selected item by its name
-  //   const selectedItem = items.find(item => item.item_name === itemName);
-    
-  //   // Store the selected item's data in localStorage or in a state management tool like Redux
-  //   // For this example, we'll store in localStorage
-  //   localStorage.setItem('selectedItem', JSON.stringify(selectedItem));
-    
-  //   // Redirect to the details page for the clicked item
-  //   navigate(`/items/${itemName}`);
-  // };
 
 
   return (
@@ -137,9 +125,12 @@ function ItemList() {
             .map((item) => (
               <tr key={item.item_name}>
                 <td>
-                <Link to={{ pathname: `/items/${item.item_name}`, state: { item } }}>
-              {item.item_name}
-            </Link>
+                <Link
+    to={{ pathname: `/items/${item.item_name}`, state: { item } }}
+    style={{ textDecoration: 'none', color: 'inherit' }}
+  >
+    {item.item_name}
+  </Link>
                 </td>
                 <td>{item.description}</td>
                 <td
